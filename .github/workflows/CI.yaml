@@ -10,7 +10,7 @@ on:
 # declare the running agent
 jobs:
   terraform-ci:
-    runs-on: unbuntu-latest
+    runs-on: ubuntu-latest
 
     steps:
 
