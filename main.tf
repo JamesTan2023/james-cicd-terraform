@@ -1,8 +1,12 @@
-# Configure the AWS Provider
-provider "aws" {
-  region = "us-east-1"
+# add this
+locals {
+  topic-name = "updates-topic"
 }
 
+
+#new sns topic
 resource "aws_sns_topic" "user_updates" {
-  name = "James2-updates-topic"
+  # change this
+  name = var.abc
 }
+
