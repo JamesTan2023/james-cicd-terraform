@@ -45,6 +45,16 @@ jobs:
     - name: Initialize Terraform
       run: terraform init
 
+#Use Terraform Workspaces      
+    - name: Terraform workspace list
+      run: terraform workspace list
+
+#Select Terraform Workspace      
+    - name: Terraform workspace new environment and select
+      run: |
+        terraform workspace select ${{ github.event.inputs.environment }} || terraform workspace new ${{ github.event.inputs.environment }}
+        terraform workspace list
+
 #terraform apply
     - name: Terraform apply
       run: terraform apply --auto-approve -var-file="environments/${{ github.event.inputs.environment }}.tfvars"

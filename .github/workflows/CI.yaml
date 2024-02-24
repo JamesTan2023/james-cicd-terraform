@@ -41,6 +41,15 @@ jobs:
     - name: Terraform prettify
       run: terraform fmt
 
+# View terraform workspaces
+    - name: Terraform workspace list
+      run: terraform workspace list
+
+# Select terraform workspace
+    - name: Terraform workspace new environment and select
+      run: |
+          terraform workspace select dev || terraform workspace new dev
+          terraform workspace list
 
 #terraform plan
     - name: Terraform Plan
